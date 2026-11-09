@@ -224,9 +224,15 @@ var CONFIG = {
         e.target.classList.add("in"); io.unobserve(e.target);
         if (e.target.hasAttribute("data-scramble")) scramble(e.target);
       });
-    }, { threshold: .15, rootMargin: "0px 0px -40px 0px" });
+    }, { threshold: 0, rootMargin: "0px 0px -8% 0px" });
     targets.forEach(function (e) { io.observe(e); });
   }
+
+  /* safety: anything still hidden after 2.5s or reached by anchor gets shown */
+  var showAll = function (root) { $$(".rv,.wipe,[data-stagger],.grad", root).forEach(function (e) { e.classList.add("in"); }); };
+  addEventListener("hashchange", function () { var t = document.getElementById(location.hash.slice(1)); if (t) showAll(t); });
+  document.addEventListener("click", function (e) { var a = e.target.closest && e.target.closest('a[href^="#"]'); if (!a) return; var t = document.getElementById(a.getAttribute("href").slice(1)); if (t) showAll(t); });
+  setTimeout(function () { $$(".rv,.wipe,[data-stagger]").forEach(function (e) { var r = e.getBoundingClientRect(); if (r.top < innerHeight && r.bottom > 0) e.classList.add("in"); }); }, 2500);
 
   /* ---------- spotlight cards + magnetic buttons ---------- */
   if (FINE && !REDUCED) {

@@ -708,3 +708,4 @@ main,.foot{overflow-x:clip}
 .hero h1.h1-slogan .grad{display:block}
 .foot-slogan{letter-spacing:.02em;font-size:16px}
 .cta-in h2{letter-spacing:-.01em}
+@media (max-width:760px){.reg.rv,.reg.rv.in{transform:none}.reg.rv{transition:opacity .6s var(--ease)}}
