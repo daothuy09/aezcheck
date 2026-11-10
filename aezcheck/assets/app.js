@@ -162,7 +162,7 @@ var CONFIG = {
       };
       btn.disabled = true; $("span", btn).textContent = T("Đang gửi…"); say("");
       fetch(CONFIG.SHEET_URL, { method: "POST", mode: "no-cors", body: new URLSearchParams(data) })
-        .then(function () { form.hidden = true; ok.hidden = false; wire(ok); ok.focus({ preventScroll: true }); })
+                .then(function () { if (window.fbq) { fbq('track', 'Lead'); fbq('track', 'CompleteRegistration'); } form.hidden = true; ok.hidden = false; wire(ok); ok.focus({ preventScroll: true }); })
         .catch(function () { say(T("Gửi chưa thành công. Thử lại hoặc") + tgLink); })
         .then(function () { btn.disabled = false; $("span", btn).textContent = T("Gửi đăng ký"); });
     });
