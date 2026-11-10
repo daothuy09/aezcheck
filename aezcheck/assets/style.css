@@ -713,3 +713,10 @@ main,.foot{overflow-x:clip}
 .hero h1.h1-slogan{line-height:1.24;letter-spacing:-.012em;word-spacing:.04em;margin:22px 0 18px;padding-top:.08em}
 .hero h1.h1-slogan .grad{padding-top:.06em;padding-bottom:.04em}
 @media (max-width:560px){.hero h1.h1-slogan{line-height:1.26}}
+/* minimal 3-field form */
+.lead.lead-min{gap:16px;align-content:start}
+.lead-min .fld input{min-height:52px;font-size:16px}
+.lead-min .btn-pri{width:100%;min-height:54px;font-size:16.5px}
+.consent-note{font-size:13px;color:var(--muted);line-height:1.5;text-align:center}
+.consent-note a{color:var(--em-2);text-decoration:underline;cursor:pointer}
+.reg{align-items:center}

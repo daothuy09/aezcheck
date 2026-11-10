@@ -107,25 +107,15 @@ var CONFIG = {
   });
 
   /* ---------- lead form ---------- */
-  var NEEDS = [["trial", "Dùng thử"], ["demo", "Demo 1-1"], ["quote", "Nhận báo giá"], ["partner", "Hợp tác / đại lý"]];
-  var MODS = ["Tài sản", "Tài chính & thẻ", "Khách hàng thuê tài khoản quảng cáo", "Shield & Admin Business Manager", "Phân quyền"];
   function formHTML(id) {
-    return '<form class="lead" id="' + id + '" novalidate>' +
-      '<div class="row2"><label class="fld"><span>Họ và tên<em>*</em></span><input name="name" autocomplete="name" placeholder="Nguyễn Văn A" maxlength="80"></label>' +
-      '<label class="fld"><span>Số điện thoại / Zalo<em>*</em></span><input name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="09xx xxx xxx" maxlength="20"></label></div>' +
-      '<div class="row2"><label class="fld"><span>Telegram</span><input name="telegram" placeholder="@username" maxlength="40"></label>' +
-      '<label class="fld"><span>Tên agency / công ty</span><input name="company" autocomplete="organization" placeholder="ABC Media" maxlength="80"></label></div>' +
-      '<fieldset class="fld"><legend>Bạn cần gì?<em>*</em></legend><div class="chips" data-need>' +
-        NEEDS.map(function (n) { return '<label><input type="radio" name="need" value="' + n[0] + '"><span>' + n[1] + '</span></label>'; }).join("") + '</div></fieldset>' +
-      '<div class="row2"><label class="fld"><span>Số tài khoản quảng cáo đang quản lý</span><select name="scale"><option value="">— Chọn —</option><option value="Dưới 100">Dưới 100</option><option value="100 – 1.000">100 – 1.000</option><option value="1.000 – 10.000">1.000 – 10.000</option><option value="Trên 10.000">Trên 10.000</option></select></label>' +
-      '<label class="fld"><span>Email</span><input name="email" type="email" autocomplete="email" placeholder="ban@congty.com" maxlength="80"></label></div>' +
-      '<fieldset class="fld"><legend>Phân hệ quan tâm</legend><div class="chips">' +
-        MODS.map(function (m) { return '<label><input type="checkbox" name="modules" value="' + m + '"><span>' + m + '</span></label>'; }).join("") + '</div></fieldset>' +
-      '<label class="fld"><span>Ghi chú</span><textarea name="note" rows="2" maxlength="600" placeholder="Ví dụ: đang quản lý 3 workspace cho thuê tài khoản quảng cáo, cần đối soát bill hằng ngày"></textarea></label>' +
+    return '<form class="lead lead-min" id="' + id + '" novalidate>' +
+      '<label class="fld"><span>Họ và tên<em>*</em></span><input name="name" autocomplete="name" placeholder="Nguyễn Văn A" maxlength="80"></label>' +
+      '<label class="fld"><span>Số điện thoại hoặc email<em>*</em></span><input name="contact" autocomplete="email" inputmode="email" placeholder="09xx xxx xxx hoặc ban@congty.com" maxlength="80"></label>' +
+      '<label class="fld"><span>Telegram</span><input name="telegram" placeholder="@username" maxlength="40"></label>' +
       '<label class="hp" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off"></label>' +
-      '<label class="consent"><input type="checkbox" name="consent"><span>Tôi đồng ý để AezCheck liên hệ tư vấn theo <a data-policy>Chính sách bảo mật</a>.</span></label>' +
       '<p class="msg" role="status" aria-live="polite"></p>' +
       '<button class="btn btn-pri" type="submit" data-mag><span>Gửi đăng ký</span>' + icon("arrow") + '</button>' +
+      '<p class="consent-note">Bằng việc gửi đăng ký, bạn đồng ý để AezCheck liên hệ tư vấn theo <a data-policy>Chính sách bảo mật</a>.</p>' +
       '</form>' +
       '<div class="lead-ok" hidden tabindex="-1">' + owl() +
       '<h3>Đã nhận đăng ký!</h3><p>Aezo đã chuyển thông tin cho đội AezCheck. Bạn sẽ được liên hệ qua kênh đã để lại. Muốn nhanh hơn, nhắn Telegram ngay.</p>' +
@@ -135,29 +125,23 @@ var CONFIG = {
     box.innerHTML = formHTML("lead-" + k);
     var form = $("form", box), ok = $(".lead-ok", box), msg = $(".msg", form), btn = $("button[type=submit]", form);
     function say(t) { msg.className = "msg" + (t ? " err" : ""); msg.innerHTML = t || ""; wire(msg); }
-    form.addEventListener("input", function (e) { var c = e.target.closest(".chips,.consent"); e.target.classList.remove("bad"); if (c) c.classList.remove("bad"); });
+    form.addEventListener("input", function (e) { e.target.classList.remove("bad"); });
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       var f = form.elements, first = null, err = "";
       $$(".bad", form).forEach(function (x) { x.classList.remove("bad"); });
       function fail(el, t) { el.classList.add("bad"); if (!first) { first = el; err = t; } }
       if (f.name.value.trim().length < 2) fail(f.name, T("Vui lòng nhập họ tên."));
-      var d = f.phone.value.replace(/\D/g, "");
-      if (d.length < 8 || d.length > 15) fail(f.phone, T("Số điện thoại chưa đúng (8–15 chữ số)."));
-      if (f.email.value.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(f.email.value.trim())) fail(f.email, T("Email chưa đúng định dạng."));
-      if (!$('input[name="need"]:checked', form)) fail($("[data-need]", form), T("Vui lòng chọn nhu cầu."));
-      if (!f.consent.checked) fail(f.consent.closest(".consent"), T("Vui lòng tích đồng ý để chúng tôi liên hệ."));
+      var cv = f.contact.value.trim(), isMail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(cv), digits = cv.replace(/\D/g, "");
+      if (!isMail && (digits.length < 8 || digits.length > 15 || /[^\d\s+().-]/.test(cv))) fail(f.contact, T("Vui lòng nhập số điện thoại (8–15 chữ số) hoặc email hợp lệ."));
       if (first) { say(err); var fe = first.matches("input,select,textarea") ? first : $("input", first); if (fe) fe.focus(); return; }
       if (f.website.value) return;
       var tgLink = ' <a data-tg>' + T("nhắn Telegram") + '</a>.';
       if (!CONFIG.SHEET_URL) { say(T("Form chưa kết nối Google Sheet. Vui lòng") + tgLink); return; }
       var q = new URLSearchParams(location.search);
       var data = {
-        name: f.name.value.trim(), phone: f.phone.value.trim(), telegram: f.telegram.value.trim(), company: f.company.value.trim(),
-        need: ($('input[name="need"]:checked', form) || {}).value, scale: f.scale.value, email: f.email.value.trim(),
-        modules: $$('input[name="modules"]:checked', form).map(function (x) { return x.value; }).join(", "),
-        note: f.note.value.trim(), site: CONFIG.SITE,
-        page: (location.pathname.split("/").pop() || "index.html") + " · " + LANG.toUpperCase(),
+        name: f.name.value.trim(), phone: cv, email: isMail ? cv : "", telegram: f.telegram.value.trim(), need: "trial",
+        site: CONFIG.SITE, page: (location.pathname.split("/").pop() || "index.html") + " · " + LANG.toUpperCase(),
         source: q.get("utm_source") || document.referrer || "direct", campaign: q.get("utm_campaign") || ""
       };
       btn.disabled = true; $("span", btn).textContent = T("Đang gửi…"); say("");
