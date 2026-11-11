@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Hướng dẫn bắt đầu — AezCheck</title>
-<meta name="description" content="4 bước khởi tạo AezCheck và quy trình làm việc mỗi ngày.">
+<meta name="description" content="4 bước khởi tạo AezCheck, quy trình làm việc mỗi ngày và 5 bước cài extension tải bill hàng loạt.">
 <meta name="theme-color" content="#02140E">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Hướng dẫn bắt đầu — AezCheck">
-<meta property="og:description" content="4 bước khởi tạo AezCheck và quy trình làm việc mỗi ngày.">
+<meta property="og:description" content="4 bước khởi tạo AezCheck, quy trình làm việc mỗi ngày và 5 bước cài extension tải bill hàng loạt.">
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="preload" href="assets/fonts/InterDisplay-ExtraBold.woff" as="font" type="font/woff" crossorigin>
 <link rel="preload" href="assets/fonts/Inter-Regular.woff" as="font" type="font/woff" crossorigin>
@@ -18,6 +18,15 @@ if(!l){try{l=localStorage.getItem("az-lang")}catch(e){}}
 if(["vi","en","ru"].indexOf(l)<0)l="vi";try{localStorage.setItem("az-lang",l)}catch(e){}
 window.AZ_LANG=l;document.documentElement.lang=l;if(l!=="vi")document.documentElement.classList.add("tr-wait")})()</script>
 
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1835984757444831');
+fbq('init', '1632034735054019');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=1835984757444831&ev=PageView&noscript=1"><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=1632034735054019&ev=PageView&noscript=1"></noscript>
+<!-- End Meta Pixel Code -->
 </head>
 <body data-page="huong-dan">
 <a class="skip" href="#main">Bỏ qua tới nội dung</a>
@@ -41,14 +50,18 @@ window.AZ_LANG=l;document.documentElement.lang=l;if(l!=="vi")document.documentEl
   <div class="wrap phero-grid"><div>
     <p class="crumb rv"><a href="index.html">Trang chủ</a><svg class="ico"><use href="#i-chev-right"/></svg>Hướng dẫn</p>
     <h1 class="rv d1">Từ đăng nhập tới vận hành — <span class="grad">nhanh gọn</span></h1><p class="lede rv d2">Khởi tạo một lần, sau đó mỗi ngày chỉ cần vài phút để nắm toàn bộ tài khoản.</p>
-    <div class="ph-stats" data-stagger><span><svg class="ico"><use href="#i-zap"/></svg>4 bước khởi tạo</span><span><svg class="ico"><use href="#i-clock"/></svg>Quy trình mỗi ngày</span><span><svg class="ico"><use href="#i-shield"/></svg>Bật bảo vệ tài khoản</span></div></div>
-    <div class="ph-side rv r"><span class="halo"></span><svg class="owl" viewBox="0 0 220 240" aria-hidden="true"><use href="#owl"/></svg><span class="owl-name"><b>Aezo</b><small>Cú canh tài khoản</small></span></div></div></section><nav class="subnav" aria-label="Mục" data-spy><div class="bar"><a href="#khoi-tao"><svg class="ico"><use href="#i-zap"/></svg>Khởi tạo</a><a href="#moi-ngay"><svg class="ico"><use href="#i-clock"/></svg>Mỗi ngày</a></div></nav><section class="sec anchor" id="khoi-tao" style="padding-top:28px"><div class="wrap">
+    <div class="ph-stats" data-stagger><span><svg class="ico"><use href="#i-zap"/></svg>4 bước khởi tạo</span><span><svg class="ico"><use href="#i-clock"/></svg>Quy trình mỗi sáng</span><span><svg class="ico"><use href="#i-puzzle"/></svg>Extension tải bill</span></div></div>
+    <div class="ph-side rv r"><span class="halo"></span><svg class="owl" viewBox="0 0 220 240" aria-hidden="true"><use href="#owl"/></svg><span class="owl-name"><b>Aezo</b><small>Cú canh tài khoản</small></span></div></div></section><nav class="subnav" aria-label="Mục" data-spy><div class="bar"><a href="#khoi-tao"><svg class="ico"><use href="#i-zap"/></svg>Khởi tạo</a><a href="#moi-ngay"><svg class="ico"><use href="#i-clock"/></svg>Mỗi ngày</a><a href="#bill"><svg class="ico"><use href="#i-puzzle"/></svg>Extension bill</a></div></nav><section class="sec anchor" id="khoi-tao" style="padding-top:28px"><div class="wrap">
   <div class="sh"><span class="kick" data-scramble>Khởi tạo</span><h2 class="rv">4 bước để bắt đầu</h2></div>
-  <div class="setup" data-stagger><div class="su glass spot"><span class="n">1</span><div><h3>Đăng nhập</h3><p>Vào aezcheck.com bằng tài khoản công ty cấp hoặc đăng nhập Google.</p></div></div><div class="su glass spot"><span class="n">2</span><div><h3>Tạo workspace</h3><p>Đặt tên, múi giờ và tiền tệ mặc định. Agency thường tạo mỗi khách hàng một workspace để tách dữ liệu.</p></div></div><div class="su glass spot"><span class="n">3</span><div><h3>Mời thành viên & phân quyền</h3><p>Mời qua email, gán vai trò (Admin, Leader, Chăm sóc khách hàng, Kế toán…) và phạm vi Full hoặc Own.</p></div></div><div class="su glass spot"><span class="n">4</span><div><h3>Bật bảo vệ</h3><p>Cài lịch quét admin Business Manager và quy tắc Shield cho từng khách hàng.</p></div></div></div>
+  <div class="setup" data-stagger><div class="su glass spot"><span class="n">1</span><div><h3>Đăng nhập</h3><p>Vào aezcheck.com bằng tài khoản công ty cấp hoặc đăng nhập Google.</p></div></div><div class="su glass spot"><span class="n">2</span><div><h3>Tạo workspace</h3><p>Đặt tên, múi giờ và tiền tệ mặc định. Agency thường tạo mỗi khách hàng một workspace để tách dữ liệu.</p></div></div><div class="su glass spot"><span class="n">3</span><div><h3>Mời thành viên & phân quyền</h3><p>Mời qua email, gán vai trò (Admin, Leader, Chăm sóc khách hàng, Kế toán…) và phạm vi Full hoặc Own.</p></div></div><div class="su glass spot"><span class="n">4</span><div><h3>Cài extension tải bill</h3><p>Nhập key do Admin cấp để quét VIA và tải bill hàng loạt — chi tiết bên dưới.</p></div></div></div>
 </div></section>
 <section class="sec anchor" id="moi-ngay" style="padding-top:0"><div class="wrap">
   <div class="sh"><span class="kick" data-scramble>Mỗi ngày</span><h2 class="rv">Quy trình gợi ý mỗi ngày</h2></div>
-  <div class="tl" data-stagger><div class="glass spot"><span class="t">ĐẦU NGÀY</span><h4>Mở Dashboard</h4><p>Xem 4 chỉ số chính, tài khoản mất kết nối và lỗi đồng bộ.</p></div><div class="glass spot"><span class="t">BUỔI SÁNG</span><h4>Tài sản · đồng bộ</h4><p>Đồng bộ hàng loạt trạng thái tài khoản quảng cáo.</p></div><div class="glass spot"><span class="t">TRONG NGÀY</span><h4>Theo dõi rủi ro</h4><p>Cảnh báo admin Business Manager, vi phạm Shield, tài khoản quảng cáo bị mất quyền.</p></div><div class="glass spot"><span class="t">CUỐI NGÀY</span><h4>Tài chính & đối soát</h4><p>Chi tiêu, ngưỡng thanh toán, đối soát hoá đơn.</p></div></div>
+  <div class="tl" data-stagger><div class="glass spot"><span class="t">ĐẦU NGÀY</span><h4>Mở Dashboard</h4><p>Xem 4 chỉ số chính, tài khoản mất kết nối và lỗi đồng bộ.</p></div><div class="glass spot"><span class="t">BUỔI SÁNG</span><h4>Tài sản · đồng bộ</h4><p>Đồng bộ hàng loạt, kiểm tra VIA sắp hết hạn token.</p></div><div class="glass spot"><span class="t">TRONG NGÀY</span><h4>Theo dõi rủi ro</h4><p>Cảnh báo admin Business Manager, vi phạm Shield, tài khoản quảng cáo bị mất quyền.</p></div><div class="glass spot"><span class="t">CUỐI NGÀY</span><h4>Tài chính & đối soát</h4><p>Chi tiêu, ngưỡng thanh toán, quyết toán khách thuê.</p></div></div>
+</div></section>
+<section class="sec anchor" id="bill" style="padding-top:0"><div class="wrap">
+  <div class="sh"><span class="kick" data-scramble>Extension</span><h2 class="rv">Tải bill hàng loạt trong 5 bước</h2><p class="rv">Tải bill từ mọi tài khoản quảng cáo mà VIA đang đăng nhập có quyền.</p></div>
+  <div class="bill" data-stagger><div class="glass spot"><span class="ic"><svg class="ico"><use href="#i-key"/></svg><b>1</b></span><h4>Nhập key</h4><p>Key do Admin cấp</p></div><div class="glass spot"><span class="ic"><svg class="ico"><use href="#i-user"/></svg><b>2</b></span><h4>Quét VIA</h4><p>VIA đang đăng nhập trên trình duyệt</p></div><div class="glass spot"><span class="ic"><svg class="ico"><use href="#i-layers"/></svg><b>3</b></span><h4>Lấy tài khoản quảng cáo</h4><p>Mọi tài khoản quảng cáo VIA có quyền</p></div><div class="glass spot"><span class="ic"><svg class="ico"><use href="#i-check"/></svg><b>4</b></span><h4>Chọn</h4><p>Lọc theo khoảng ngày</p></div><div class="glass spot"><span class="ic"><svg class="ico"><use href="#i-download"/></svg><b>5</b></span><h4>Download Bill</h4><p>Tải toàn bộ một lần</p></div></div>
 </div></section>
 <section class="cta-band"><div class="wrap"><div class="cta-in rv">
   <canvas class="net" aria-hidden="true"></canvas>
@@ -62,9 +75,9 @@ window.AZ_LANG=l;document.documentElement.lang=l;if(l!=="vi")document.documentEl
     <div class="foot-brand">
       <a class="logo" href="index.html"><img src="assets/logo-mark-256.png" alt="" width="36" height="32"><span>Aez<b>Check</b></span></a>
       <p class="foot-slogan grad">KIỂM SOÁT TOÀN BỘ HỆ THỐNG QUẢNG CÁO</p>
-      <p class="foot-desc">Nền tảng quản lý tài khoản quảng cáo, Business Manager và Fanpage cho agency quảng cáo Facebook.</p>
+      <p class="foot-desc">Nền tảng quản lý tài khoản quảng cáo, Business Manager, VIA, Fanpage và khách thuê cho agency quảng cáo Facebook.</p>
     </div>
-    <div><h4>Sản phẩm</h4><ul><li><a href="vai-tro.html">Vai trò & phân quyền</a></li><li><a href="tinh-nang.html">11 tính năng</a></li><li><a href="so-sanh.html">So sánh</a></li><li><a href="huong-dan.html">Hướng dẫn bắt đầu</a></li><li><a href="hoi-dap.html">Hỏi đáp</a></li></ul></div>
+    <div><h4>Sản phẩm</h4><ul><li><a href="vai-tro.html">Vai trò & phân quyền</a></li><li><a href="tinh-nang.html">13 tính năng</a></li><li><a href="so-sanh.html">So sánh</a></li><li><a href="huong-dan.html">Hướng dẫn bắt đầu</a></li><li><a href="hoi-dap.html">Hỏi đáp</a></li></ul></div>
     <div><h4>Hỗ trợ</h4><ul><li><a data-tg>Telegram @nil_ad01</a></li><li><a data-login>Đăng nhập aezcheck.com</a></li><li><a href="#dang-ky">Đăng ký dùng thử</a></li></ul></div>
     <div><h4>Pháp lý</h4><ul><li><a data-policy>Chính sách bảo mật</a></li><li><span class="muted-link">Điều khoản sử dụng <em>Sắp có</em></span></li></ul></div>
   </div>
