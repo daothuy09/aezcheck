@@ -52,6 +52,7 @@ var CONFIG = {
   /* ---------- links ---------- */
   function wire(root) {
     $$("[data-tg]", root).forEach(function (a) { a.href = CONFIG.TELEGRAM; a.target = "_blank"; a.rel = "noopener"; });
+
     $$("[data-login]", root).forEach(function (a) { a.href = CONFIG.LOGIN; a.target = "_blank"; a.rel = "noopener"; });
     $$("[data-policy]", root).forEach(function (a) { a.href = "#chinh-sach"; a.onclick = function (e) { e.preventDefault(); if (pol.showModal) pol.showModal(); }; });
   }
@@ -113,15 +114,18 @@ var CONFIG = {
     return '<form class="lead" id="' + id + '" novalidate>' +
       '<div class="row2"><label class="fld"><span>Họ và tên<em>*</em></span><input name="name" autocomplete="name" placeholder="Nguyễn Văn A" maxlength="80"></label>' +
       '<label class="fld"><span>Số điện thoại / Zalo<em>*</em></span><input name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="09xx xxx xxx" maxlength="20"></label></div>' +
-      '<div class="row2"><label class="fld"><span>Telegram</span><input name="telegram" placeholder="@username" maxlength="40"></label>' +
-      '<label class="fld"><span>Tên agency / công ty</span><input name="company" autocomplete="organization" placeholder="ABC Media" maxlength="80"></label></div>' +
       '<fieldset class="fld"><legend>Bạn cần gì?<em>*</em></legend><div class="chips" data-need>' +
         NEEDS.map(function (n) { return '<label><input type="radio" name="need" value="' + n[0] + '"><span>' + n[1] + '</span></label>'; }).join("") + '</div></fieldset>' +
+      // Thông tin thêm: không bắt buộc, thu gọn để form ngắn
+      '<details class="lead-more"><summary>Thêm thông tin (không bắt buộc)</summary>' +
+      '<div class="row2"><label class="fld"><span>Telegram</span><input name="telegram" placeholder="@username" maxlength="40"></label>' +
+      '<label class="fld"><span>Tên agency / công ty</span><input name="company" autocomplete="organization" placeholder="ABC Media" maxlength="80"></label></div>' +
       '<div class="row2"><label class="fld"><span>Số tài khoản quảng cáo đang quản lý</span><select name="scale"><option value="">— Chọn —</option><option value="Dưới 100">Dưới 100</option><option value="100 – 1.000">100 – 1.000</option><option value="1.000 – 10.000">1.000 – 10.000</option><option value="Trên 10.000">Trên 10.000</option></select></label>' +
       '<label class="fld"><span>Email</span><input name="email" type="email" autocomplete="email" placeholder="ban@congty.com" maxlength="80"></label></div>' +
       '<fieldset class="fld"><legend>Phân hệ quan tâm</legend><div class="chips">' +
         MODS.map(function (m) { return '<label><input type="checkbox" name="modules" value="' + m + '"><span>' + m + '</span></label>'; }).join("") + '</div></fieldset>' +
       '<label class="fld"><span>Ghi chú</span><textarea name="note" rows="2" maxlength="600" placeholder="Ví dụ: đang quản lý 3 workspace cho thuê tài khoản quảng cáo, cần đối soát bill hằng ngày"></textarea></label>' +
+      '</details>' +
       '<label class="hp" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off"></label>' +
       '<label class="consent"><input type="checkbox" name="consent"><span>Tôi đồng ý để AezCheck liên hệ tư vấn theo <a data-policy>Chính sách bảo mật</a>.</span></label>' +
       '<p class="msg" role="status" aria-live="polite"></p>' +

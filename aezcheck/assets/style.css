@@ -713,3 +713,6 @@ main,.foot{overflow-x:clip}
 .hero h1.h1-slogan{line-height:1.24;letter-spacing:-.012em;word-spacing:.04em;margin:22px 0 18px;padding-top:.08em}
 .hero h1.h1-slogan .grad{padding-top:.06em;padding-bottom:.04em}
 @media (max-width:560px){.hero h1.h1-slogan{line-height:1.26}}
+
+/* Sửa 11/11: khối thông tin thêm của form đăng ký */
+.lead-more{border:1px dashed rgba(255,255,255,.18);border-radius:12px;padding:10px 14px}.lead-more>*:not(summary){margin-top:14px}.lead-more>summary{cursor:pointer;font-weight:600;font-size:.92em;opacity:.85;list-style:none}.lead-more>summary::-webkit-details-marker{display:none}.lead-more>summary::before{content:"+ "}.lead-more[open]>summary::before{content:"− "}
