@@ -150,7 +150,7 @@ var CONFIG = {
       };
       btn.disabled = true; $("span", btn).textContent = T("Đang gửi…"); say("");
       fetch(CONFIG.SHEET_URL, { method: "POST", mode: "no-cors", body: new URLSearchParams(data) })
-        .then(function () { track("Lead", { content_name: "AezCheck form" }); form.hidden = true; ok.hidden = false; wire(ok); ok.focus({ preventScroll: true }); })
+        .then(function () { track("Lead", { content_name: "AezCheck form" }); track("CompleteRegistration", { content_name: "AezCheck form" }); form.hidden = true; ok.hidden = false; wire(ok); ok.focus({ preventScroll: true }); })
         .catch(function () { say(T("Gửi chưa thành công. Thử lại hoặc") + tgLink); })
         .then(function () { btn.disabled = false; $("span", btn).textContent = T("Gửi đăng ký"); });
     });
